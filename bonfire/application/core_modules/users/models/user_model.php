@@ -273,20 +273,20 @@ class User_model extends BF_Model {
 	public function count_by_roles() 
 	{
 		$prefix = $this->db->dbprefix;
-	
-		$sql = "SELECT role_name, COUNT(1) as count
-				FROM {$prefix}users, {$prefix}roles
-				WHERE {$prefix}users.role_id = {$prefix}roles.role_id
-				GROUP BY {$prefix}users.role_id";
-		
-		$query = $this->db->query($sql);
-		
-		if ($query->num_rows())
-		{
-			return $query->result();
-		}
 
-		return false;
+        $sql = "SELECT role_name, COUNT(1) as count
+                FROM {$prefix}users, {$prefix}roles
+                WHERE {$prefix}users.role_id = {$prefix}roles.role_id
+                GROUP BY {$prefix}users.role_id";
+
+        $query = $this->db->query($sql);
+
+        if ($query->num_rows())
+        {
+            return $query->result();
+        }
+
+        return false; 
 	}
 	
 	//--------------------------------------------------------------------
